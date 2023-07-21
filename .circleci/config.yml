@@ -3,8 +3,8 @@ version: 2.1
 # Define the jobs we want to run for this project
 jobs:
   build:
-    docker:
-      - image: circleci/node:16.10.0
+    machine:
+      image: ubuntu-2004:202010-01
     steps:
       - run: ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd /root/via-app && git stash && git pull && npm run refresh-kbs && npm run build && cp -a ./dist/. /var/www/html/via-app"
 
