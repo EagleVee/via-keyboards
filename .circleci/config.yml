@@ -2,31 +2,16 @@ version: 2.1
 
 # Define the jobs we want to run for this project
 jobs:
-  
-  ssh-to-server:
+
+  build:
     machine:
       image: ubuntu-2004:202010-01
     steps:
       - run: ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST
-
-  checkout:
-    machine:
-      image: ubuntu-2004:202010-01
-    steps:
       - run: cd ~/via-app
       - run: git stash && git pull
-
-  run-keyboard:
-    machine:
-      image: ubuntu-2004:202010-01
-    steps:
       - run: yarn refresh-kbs
       - run: yarn build
-
-  deploy:
-    machine:
-      image: ubuntu-2004:202010-01
-    steps:
       - run: cp -a ./dist/. /var/www/html/via-app
       - run: echo "Deployed /dist to /via-app"
 
@@ -34,7 +19,4 @@ jobs:
 workflows:
   build_and_test:
     jobs:
-      - ssh-to-server
-      - checkout
-      - run-keyboard
-      - deploy
+      - build
