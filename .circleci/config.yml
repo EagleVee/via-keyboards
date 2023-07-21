@@ -4,19 +4,17 @@ version: 2.1
 jobs:
 
   build:
-    machine:
-      image: ubuntu-2004:202010-01
+    docker:
+      - image: circleci/node:16.10.0
     steps:
-      - run: ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST
-      - run: cd ~/via-app
-      - run: git stash && git pull
-      - run: yarn refresh-kbs
-      - run: yarn build
-      - run: cp -a ./dist/. /var/www/html/via-app
-      - run: echo "Deployed /dist to /via-app"
+      - run: ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST && cd ~/via-app && git stash && git pull && yarn refresh-kbs && yarn build && cp -a ./dist/. /var/www/html/via-app
 
 # Orchestrate our job run sequence
 workflows:
-  build_and_test:
+  version: 2.1
+  build-and-deploy:
     jobs:
-      - build
+      - deploy:
+          filters:
+            branches:
+              only: master
