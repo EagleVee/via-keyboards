@@ -5,7 +5,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/node:18.0
+      - image: cimg/node:18.17
     steps:
       - checkout
       - node/install:
@@ -27,7 +27,9 @@ jobs:
     steps:
       - attach_workspace:
           at: /workspace
-      - add_ssh_keys
+       - add_ssh_keys:
+          fingerprints:
+            - "ec:81:5f:4b:e2:09:6d:63:11:5c:65:46:f2:27:98:51"
       - run:
           name: Copy dist folder to Server
           command: scp -a /workspace/dist/* $SSH_USER@$SSH_HOST:/var/www/html/via-app
