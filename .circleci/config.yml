@@ -6,7 +6,7 @@ jobs:
     machine:
       image: ubuntu-2004:202010-01
     steps:
-      - run: ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd /root/via-app && git stash && git pull && which npm && npm run refresh-kbs && npm run build && cp -a ./dist/. /var/www/html/via-app"
+      - run: ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd /root/via-app && git stash && git pull && which npm && npm run refresh-kbs && npm run build:vite && cp -a ./dist/. /var/www/html/via-app"
 
 # Orchestrate our job run sequence
 workflows:
