@@ -49,7 +49,6 @@
                             "options": [
                                 "Caps Lock",
                                 "Num Lock",
-                                "Scroll Lock",
                                 "Layer 0",
                                 "Layer 1",
                                 "Layer 2"
@@ -66,7 +65,7 @@
                             "type": "range",
                             "options": [
                                 0,
-                                3
+                                2
                             ],
                             "content": [
                                 "id_ind1_index",
@@ -119,7 +118,6 @@
                             "options": [
                                 "Caps Lock",
                                 "Num Lock",
-                                "Scroll Lock",
                                 "Layer 0",
                                 "Layer 1",
                                 "Layer 2"
@@ -136,7 +134,7 @@
                             "type": "range",
                             "options": [
                                 0,
-                                3
+                                2
                             ],
                             "content": [
                                 "id_ind2_index",
@@ -189,7 +187,6 @@
                             "options": [
                                 "Caps Lock",
                                 "Num Lock",
-                                "Scroll Lock",
                                 "Layer 0",
                                 "Layer 1",
                                 "Layer 2"
@@ -206,7 +203,7 @@
                             "type": "range",
                             "options": [
                                 0,
-                                3
+                                2
                             ],
                             "content": [
                                 "id_ind3_index",
