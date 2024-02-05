@@ -213,7 +213,8 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "qmk_rgb_matrix"
         }
     ],
     "keycodes": [
