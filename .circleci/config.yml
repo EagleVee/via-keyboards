@@ -4,7 +4,7 @@ version: 2.1
 jobs:
   build:
     machine:
-      image: ubuntu-2004:202010-01
+      image: ubuntu-2204:2024.05.1
     steps:
       - run: ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd /root/via-app && git stash && git pull && which npm && npm run refresh-kbs && npm run build && cp -a ./dist/. /var/www/html/via-app"
 
