@@ -319,7 +319,7 @@
         }
     ],
     "keycodes": [
-        "qmk_lighting"
+        "qmk_rgb_matrix"
     ],
     "matrix": {
         "rows": 4,
